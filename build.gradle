@@ -46,14 +46,7 @@ tasks.withType(JavaCompile) {
 }
 
 test {
-    useTestNG()
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled true
-        html.enabled true
-    }
+    useJUnitPlatform()
 }
 
 task sourcesJar(type: Jar) {
@@ -65,6 +58,13 @@ task javadocJar(type: Jar) {
     from javadoc
     archiveClassifier.set("javadoc")
     javadoc.properties.failOnError = true
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled true
+    }
 }
 
 check.dependsOn jacocoTestReport
@@ -186,6 +186,13 @@ gradle.startParameter.excludedTaskNames += "licenseTest"
 dependencies {
     compileOnly("org.projectlombok:lombok:$lombokVersion")
     annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+    testCompileOnly("org.projectlombok:lombok:$lombokVersion")
+    testAnnotationProcessor("org.projectlombok:lombok:$lombokVersion")
+    testImplementation("de.alpharogroup:silly-io:$sillyIoVersion")
+    testImplementation("de.alpharogroup:silly-strings:$sillyStringsVersion")
+    testImplementation("de.alpharogroup:silly-collections:$sillyCollectionsVersion")
+    testImplementation("org.apache.commons:commons-lang3:$commonsLang3Version")
+    testImplementation("io.github.astrapi69:file-worker:$fileWorkerVersion")
     testImplementation("org.meanbean:meanbean:$meanbeanVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
