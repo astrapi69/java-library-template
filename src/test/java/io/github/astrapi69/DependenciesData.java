@@ -42,6 +42,7 @@ public class DependenciesData
 	public static final String BUILD_GRADLE_NAME = "build.gradle";
 	public static final String GRADLE_PROPERTIES_NAME = "gradle.properties";
 	public static final String DOT_GITHUB_DIRECTORY_NAME = ".github";
+	public static final String DOT_TRAVIS_FILENAME = ".travis.yml";
 	public static final String CODE_OF_CONDUCT_FILENAME = "CODE_OF_CONDUCT.md";
 
 	File buildGradle;

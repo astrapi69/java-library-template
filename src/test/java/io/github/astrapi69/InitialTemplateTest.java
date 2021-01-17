@@ -12,25 +12,25 @@ import java.io.IOException;
 
 class InitialTemplateTest
 {
-	public static final String BUILD_GRADLE_FILENAME = "build.gradle";
-	public static final String DOT_GITHUB_DIRECTORY_NAME = ".github";
-	public static final String CODE_OF_CONDUCT_FILENAME = "CODE_OF_CONDUCT.md";
 
 	@Test
 //	@Disabled
 	public void renameToConcreteProject() throws IOException
 	{
 		String concreteProjectName;
+		String templateProjectName;
 		File sourceProjectDir;
 		File settingsGradle;
+		File dotTravisYml;
 		File dotGithubDir;
 		File codeOfConduct;
 		//
-		concreteProjectName = "foo-bar";
 		sourceProjectDir = PathFinder.getProjectDirectory();
+		templateProjectName = "java-library-template";
+		concreteProjectName = "foo-bar";
 		settingsGradle = new File(sourceProjectDir, DependenciesData.SETTINGS_GRADLE_FILENAME);
 		ModifyFileExtensions.modifyFile(settingsGradle.toPath(), (count, input) -> {
-			return input.replaceAll(sourceProjectDir.getName(),
+			return input.replaceAll(templateProjectName,
 				concreteProjectName)
 				+ System.lineSeparator();
 		});
@@ -38,10 +38,22 @@ class InitialTemplateTest
 		dotGithubDir = new File(sourceProjectDir, DependenciesData.DOT_GITHUB_DIRECTORY_NAME);
 		codeOfConduct = new File(dotGithubDir, DependenciesData.CODE_OF_CONDUCT_FILENAME);
 		ModifyFileExtensions.modifyFile(codeOfConduct.toPath(), (count, input) -> {
-			return input.replaceAll(sourceProjectDir.getName(),
+			return input.replaceAll(templateProjectName,
 				concreteProjectName)
 				+ System.lineSeparator();
 		});
+
+		dotTravisYml = new File(sourceProjectDir, DependenciesData.DOT_TRAVIS_FILENAME);
+		ModifyFileExtensions.modifyFile(dotTravisYml.toPath(), (count, input) -> {
+			return input.replaceAll(templateProjectName,
+				concreteProjectName)
+				+ System.lineSeparator();
+		});
+
+		// TODO
+		// change projectDescription from gradle.properties
+		// delete template class
+		// rename run configurations
 	}
 
 }
