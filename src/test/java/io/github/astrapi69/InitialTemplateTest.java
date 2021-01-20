@@ -49,7 +49,7 @@ class InitialTemplateTest
 		//
 		sourceProjectDir = PathFinder.getProjectDirectory();
 		templateProjectName = "java-library-template";
-		concreteProjectName = "foo-bar";
+		concreteProjectName = "foo-bar-test";
 		projectDescription = "projectDescription-foobar-projectDescription";
 		// adapt settings.gradle file
 		settingsGradle = new File(sourceProjectDir, DependenciesData.SETTINGS_GRADLE_FILENAME);
