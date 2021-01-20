@@ -76,19 +76,19 @@ class InitialTemplateTest
 		// delete template run configurations
 		// create run configurations for current project
 
-//		String sourceProjectDirNamePrefix;
-//		String targetProjectDirNamePrefix;
-//		CopyGradleRunConfigurations copyGradleRunConfigurationsData;
-//		String sourceProjectName;
-//		String targetProjectName;
-//		sourceProjectName = templateProjectName;
-//		targetProjectName = concreteProjectName;
-//		sourceProjectDirNamePrefix = "/home/astrapi69/dev/github/astrapi69/";
-//		targetProjectDirNamePrefix = "/home/astrapi69/dev/github/astrapi69/";
-//		copyGradleRunConfigurationsData = GradleRunConfigurationsCopier
-//			.newCopyGradleRunConfigurations(sourceProjectName, targetProjectName,
-//				sourceProjectDirNamePrefix, targetProjectDirNamePrefix, true);
-//		GradleRunConfigurationsCopier.of(copyGradleRunConfigurationsData).copy();
+		String sourceProjectDirNamePrefix;
+		String targetProjectDirNamePrefix;
+		CopyGradleRunConfigurations copyGradleRunConfigurationsData;
+		String sourceProjectName;
+		String targetProjectName;
+		sourceProjectName = templateProjectName;
+		targetProjectName = concreteProjectName;
+		sourceProjectDirNamePrefix = "/home/astrapi69/dev/github/astrapi69/";
+		targetProjectDirNamePrefix = "/home/astrapi69/dev/github/astrapi69/";
+		copyGradleRunConfigurationsData = GradleRunConfigurationsCopier
+			.newCopyGradleRunConfigurations(sourceProjectName, targetProjectName,
+				sourceProjectDirNamePrefix, targetProjectDirNamePrefix, true);
+		GradleRunConfigurationsCopier.of(copyGradleRunConfigurationsData).copy();
 	}
 
 
