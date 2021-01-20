@@ -103,8 +103,8 @@ class InitialTemplateTest
 		GradleRunConfigurationsCopier.of(copyGradleRunConfigurationsData).copy();
 
 		File targetRunConfigDir = copyGradleRunConfigurationsData.getTargetRunConfigDir();
-		targetRunConfigDir.listFiles();
-		Arrays.stream(targetRunConfigDir.listFiles()).forEach(this::addGitFile);
+		File[] files = targetRunConfigDir.listFiles();
+		Arrays.stream(files).forEach(this::addGitFile);
 	}
 
 	private void addGitFile(File file)
