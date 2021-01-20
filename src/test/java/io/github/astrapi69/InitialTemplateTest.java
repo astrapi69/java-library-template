@@ -2,13 +2,6 @@ package io.github.astrapi69;
 
 import de.alpharogroup.collections.properties.PropertiesExtensions;
 import de.alpharogroup.io.StreamExtensions;
-import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
-import edu.nyu.cs.javagit.api.DotGit;
-import edu.nyu.cs.javagit.api.GitFile;
-import edu.nyu.cs.javagit.api.JavaGitConfiguration;
-import edu.nyu.cs.javagit.api.JavaGitException;
-import edu.nyu.cs.javagit.api.WorkingTree;
-import edu.nyu.cs.javagit.api.commands.GitAddResponse;
 import io.github.astrapi69.delete.DeleteFileExtensions;
 import io.github.astrapi69.modify.ModifyFileExtensions;
 import io.github.astrapi69.search.PathFinder;
@@ -21,18 +14,6 @@ import java.util.Properties;
 
 class InitialTemplateTest
 {
-
-	@Test public void setGitPath() throws IOException, JavaGitException
-	{
-
-		// Make sure you have JavaGit added as an external jar in your project
-		//		JavaGitConfiguration.setGitPath("/usr/bin/");
-
-		// Print the git version:  1.5.1
-		String gitVersion = JavaGitConfiguration.getGitVersion();
-		System.out.println(gitVersion);
-	}
-
 	@Test
 	//	@Disabled
 	public void renameToConcreteProject() throws IOException
@@ -95,29 +76,14 @@ class InitialTemplateTest
 		String targetProjectName;
 		sourceProjectName = templateProjectName;
 		targetProjectName = concreteProjectName;
-		sourceProjectDirNamePrefix = sourceProjectDir.getParent();
+		sourceProjectDirNamePrefix = sourceProjectDir.getParent() + "/";
 		targetProjectDirNamePrefix = sourceProjectDirNamePrefix;
 		copyGradleRunConfigurationsData = GradleRunConfigurationsCopier
 			.newCopyGradleRunConfigurations(sourceProjectName, targetProjectName,
 				sourceProjectDirNamePrefix, targetProjectDirNamePrefix, true, true);
 		GradleRunConfigurationsCopier.of(copyGradleRunConfigurationsData).copy();
 
-		File targetRunConfigDir = copyGradleRunConfigurationsData.getTargetRunConfigDir();
-		File[] files = targetRunConfigDir.listFiles();
-		Arrays.stream(files).forEach(this::addGitFile);
 	}
-
-	private void addGitFile(File file)
-	{
-		// Get the instance of the DotGit Object
-		DotGit dotGit = DotGit.getInstance(PathFinder.getProjectDirectory());
-
-		// Get the current working tree from the git repository
-		WorkingTree wt = dotGit.getWorkingTree();
-		GitFile gitFile = RuntimeExceptionDecorator.decorate(() -> wt.getFile(file));
-		GitAddResponse ar = RuntimeExceptionDecorator.decorate(() -> wt.add());
-	}
-
 
 	private void setProjectDescription(File targetProjectDir, String projectDescription)
 		throws IOException
