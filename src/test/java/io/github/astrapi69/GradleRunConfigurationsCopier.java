@@ -1,8 +1,8 @@
 /**
  * The MIT License
- *
+ * <p>
  * Copyright (C) 2015 Asterios Raptis
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
  * "Software"), to deal in the Software without restriction, including
@@ -10,10 +10,10 @@
  * distribute, sublicense, and/or sell copies of the Software, and to
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -62,7 +62,7 @@ public class GradleRunConfigurationsCopier
 
 	public static CopyGradleRunConfigurations newCopyGradleRunConfigurations(
 		String sourceProjectName, String targetProjectName, String sourceProjectDirNamePrefix,
-		String targetProjectDirNamePrefix, boolean onlyRunConfigurations)
+		String targetProjectDirNamePrefix, boolean onlyRunConfigurations, boolean runConfigurationsInSameFolder)
 	{
 		File sourceProjectDir;
 		File targetProjectDir;
@@ -93,7 +93,9 @@ public class GradleRunConfigurationsCopier
 			.ideaSourceDir(ideaSourceDir).ideaTargetDir(ideaTargetDir)
 			.sourceRunConfigDir(sourceRunConfigDir).targetRunConfigDir(targetRunConfigDir)
 			.sourceFilenamePrefix(sourceFilenamePrefix).targetFilenamePrefix(targetFilenamePrefix)
-			.sourceProjectName(sourceProjectName).targetProjectName(targetProjectName).build();
+			.sourceProjectName(sourceProjectName).targetProjectName(targetProjectName)
+			.runConfigurationsInSameFolder(runConfigurationsInSameFolder)
+			.build();
 	}
 
 	public static GradleRunConfigurationsCopier of(
@@ -130,30 +132,41 @@ public class GradleRunConfigurationsCopier
 		throws IOException, FileIsADirectoryException, FileDoesNotExistException
 	{
 		List<File> allFiles;
-		// find all run configurations files for copy
-		allFiles = FileSearchExtensions.findAllFiles(
-			copyGradleRunConfigurationsData.getSourceRunConfigDir(),
-			copyGradleRunConfigurationsData.getSourceFilenamePrefix() + ".*");
-		// copy found run configurations files to the target directory
-		CopyFileExtensions.copyFiles(allFiles,
-			copyGradleRunConfigurationsData.getTargetRunConfigDir(), StandardCharsets.UTF_8,
-			StandardCharsets.UTF_8, true);
-		// find all run configurations files for rename
-		allFiles = FileSearchExtensions.findAllFiles(
-			copyGradleRunConfigurationsData.getTargetRunConfigDir(),
-			copyGradleRunConfigurationsData.getSourceFilenamePrefix() + ".*");
+		if (copyGradleRunConfigurationsData.isRunConfigurationsInSameFolder())
+		{
+			// find all run configurations files
+			allFiles = FileSearchExtensions
+				.findAllFiles(copyGradleRunConfigurationsData.getTargetRunConfigDir(),
+					copyGradleRunConfigurationsData.getSourceFilenamePrefix() + ".*");
+		}
+		else
+		{
+			// find all run configurations files for copy
+			allFiles = FileSearchExtensions
+				.findAllFiles(copyGradleRunConfigurationsData.getSourceRunConfigDir(),
+					copyGradleRunConfigurationsData.getSourceFilenamePrefix() + ".*");
+			// copy found run configurations files to the target directory
+			CopyFileExtensions
+				.copyFiles(allFiles, copyGradleRunConfigurationsData.getTargetRunConfigDir(),
+					StandardCharsets.UTF_8, StandardCharsets.UTF_8, true);
+			// find all run configurations files for rename
+			allFiles = FileSearchExtensions
+				.findAllFiles(copyGradleRunConfigurationsData.getTargetRunConfigDir(),
+					copyGradleRunConfigurationsData.getSourceFilenamePrefix() + ".*");
+		}
 		// rename all run configurations files
 		for (File file : allFiles)
 		{
 			String name = file.getName();
-			String newName = name.replace(copyGradleRunConfigurationsData.getSourceFilenamePrefix(),
+			String newName;
+			newName = name.replace(copyGradleRunConfigurationsData.getSourceFilenamePrefix(),
 				copyGradleRunConfigurationsData.getTargetFilenamePrefix());
 			RenameFileExtensions.renameFile(file, newName);
 		}
 		// Find all renamed run configurations files
-		allFiles = FileSearchExtensions.findAllFiles(
-			copyGradleRunConfigurationsData.getTargetRunConfigDir(),
-			copyGradleRunConfigurationsData.getTargetFilenamePrefix() + ".*");
+		allFiles = FileSearchExtensions
+			.findAllFiles(copyGradleRunConfigurationsData.getTargetRunConfigDir(),
+				copyGradleRunConfigurationsData.getTargetFilenamePrefix() + ".*");
 		// replace content of all run configurations files so they can run appropriate to the new
 		// project
 		for (File file : allFiles)
@@ -161,8 +174,8 @@ public class GradleRunConfigurationsCopier
 			Path inFilePath = file.toPath();
 			ModifyFileExtensions.modifyFile(inFilePath, (count, input) -> {
 				return input.replaceAll(copyGradleRunConfigurationsData.getSourceProjectName(),
-					copyGradleRunConfigurationsData.getTargetProjectName())
-					+ System.lineSeparator();
+					copyGradleRunConfigurationsData.getTargetProjectName()) + System
+					.lineSeparator();
 			});
 		}
 	}
@@ -252,8 +265,8 @@ public class GradleRunConfigurationsCopier
 		properties.setProperty("projectScmProviderDomain", "github.com");
 		properties.setProperty("projectScmProviderUrl", "https://github.com/");
 		properties.setProperty("projectLicenseName", "MIT License");
-		properties.setProperty("projectLicenseUrl",
-			"http://www.opensource.org/licenses/mit-license.php");
+		properties
+			.setProperty("projectLicenseUrl", "http://www.opensource.org/licenses/mit-license.php");
 		properties.setProperty("projectLicenseDistribution", "repo");
 		properties.setProperty("projectOrganizationName", "Alpha Ro Group UG (h.b.)");
 		properties.setProperty("projectOrganizationUrl", "http://www.alpharogroup.de/");
@@ -280,19 +293,19 @@ public class GradleRunConfigurationsCopier
 		String versionPrefix = "version = ";
 		int versionPrefixLength = versionPrefix.length();
 		int indexOfVersionStart = buildGradleContent.indexOf(versionPrefix);
-		String versionQuotationMark = buildGradleContent.substring(
-			indexOfVersionStart + versionPrefixLength,
-			indexOfVersionStart + versionPrefixLength + 1);
+		String versionQuotationMark = buildGradleContent
+			.substring(indexOfVersionStart + versionPrefixLength,
+				indexOfVersionStart + versionPrefixLength + 1);
 		String substring = buildGradleContent
 			.substring(indexOfVersionStart + versionPrefixLength + 1);
 		int ie = substring.indexOf(versionQuotationMark);
 		int indexOfVersionEnd = ie + indexOfVersionStart + versionPrefixLength + 2;
 		String versionLine = buildGradleContent.substring(indexOfVersionStart, indexOfVersionEnd);
-		String versionValue = StringUtils.substringsBetween(versionLine, versionQuotationMark,
-			versionQuotationMark)[0];
+		String versionValue = StringUtils
+			.substringsBetween(versionLine, versionQuotationMark, versionQuotationMark)[0];
 		gradleProperties.setProperty(projectVersionKey, versionValue);
-		String newVersionLine = StringUtils.replace(versionLine, versionValue,
-			"$" + projectVersionKey);
+		String newVersionLine = StringUtils
+			.replace(versionLine, versionValue, "$" + projectVersionKey);
 		return StringUtils.replace(buildGradleContent, versionLine, newVersionLine);
 	}
 
@@ -303,8 +316,8 @@ public class GradleRunConfigurationsCopier
 		int indexOfStart = buildGradleContent.indexOf("dependencies {");
 		int indexOfEnd = buildGradleContent.substring(indexOfStart).indexOf("}") + indexOfStart + 1;
 		String dependencies = buildGradleContent.substring(indexOfStart, indexOfEnd);
-		String replacedBuildGradleContent = StringUtils.replace(buildGradleContent, dependencies,
-			newDependenciesContent);
+		String replacedBuildGradleContent = StringUtils
+			.replace(buildGradleContent, dependencies, newDependenciesContent);
 		replacedBuildGradleContent = getVersion(replacedBuildGradleContent, gradleProperties);
 		return StringUtils.replace(replacedBuildGradleContent, "'", "\"");
 	}

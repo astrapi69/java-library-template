@@ -87,7 +87,7 @@ class InitialTemplateTest
 		targetProjectDirNamePrefix = "/home/astrapi69/dev/github/astrapi69/";
 		copyGradleRunConfigurationsData = GradleRunConfigurationsCopier
 			.newCopyGradleRunConfigurations(sourceProjectName, targetProjectName,
-				sourceProjectDirNamePrefix, targetProjectDirNamePrefix, true);
+				sourceProjectDirNamePrefix, targetProjectDirNamePrefix, true, true);
 		GradleRunConfigurationsCopier.of(copyGradleRunConfigurationsData).copy();
 	}
 
