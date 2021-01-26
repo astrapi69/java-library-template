@@ -1,19 +1,26 @@
 package io.github.astrapi69;
 
 import de.alpharogroup.collections.properties.PropertiesExtensions;
-import de.alpharogroup.io.StreamExtensions;
 import io.github.astrapi69.delete.DeleteFileExtensions;
+import io.github.astrapi69.io.StreamExtensions;
+import io.github.astrapi69.io.file.filter.PrefixFileFilter;
 import io.github.astrapi69.modify.ModifyFileExtensions;
 import io.github.astrapi69.search.PathFinder;
+import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.Status;
+import org.eclipse.jgit.api.errors.GitAPIException;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Properties;
+import java.util.Set;
 
 class InitialTemplateTest
 {
+	private Git git;
 	@Test
 	//	@Disabled
 	public void renameToConcreteProject() throws IOException
@@ -64,10 +71,7 @@ class InitialTemplateTest
 			return input
 				.replaceAll("projectDescription=Template project for create java library projects",
 					"projectDescription=" + projectDescription) + System.lineSeparator();
-		});
-		// TODO
-		// delete template run configurations
-		// create run configurations for current project
+		});		// create run configurations for current project
 
 		String sourceProjectDirNamePrefix;
 		String targetProjectDirNamePrefix;
@@ -83,6 +87,42 @@ class InitialTemplateTest
 				sourceProjectDirNamePrefix, targetProjectDirNamePrefix, true, true);
 		GradleRunConfigurationsCopier.of(copyGradleRunConfigurationsData).copy();
 
+		// delete template run configurations
+		RuntimeExceptionDecorator.decorate(() -> DeleteFileExtensions
+			.deleteFilesWithFileFilter(
+				copyGradleRunConfigurationsData.getIdeaTargetDir(),
+				new PrefixFileFilter("java_library_template", false)));
+
+		// add to the new run configurations to git
+		RuntimeExceptionDecorator.decorate(() ->
+			addRunConfigurationsToGit(copyGradleRunConfigurationsData));
+		// TODO check
+	}
+
+	private void addRunConfigurationsToGit(CopyGradleRunConfigurations copyGradleRunConfigurationsData) throws IOException, GitAPIException
+	{
+		git = Git.open(copyGradleRunConfigurationsData.getTargetProjectDir());
+
+		File targetRunConfigDir = copyGradleRunConfigurationsData.getTargetRunConfigDir();
+		File[] files = targetRunConfigDir.listFiles();
+		if (files != null && 0 < files.length)
+		{
+			Arrays.stream(files).forEach(this::addGitFile);
+		}
+
+		Status status = git.status().call();
+
+		Set<String> added = status.getAdded();
+		for (String add : added)
+		{
+			System.out.println("Added: " + add);
+		}
+	}
+
+	private void addGitFile(File file)
+	{
+		RuntimeExceptionDecorator.decorate(() ->
+			git.add().addFilepattern(file.getName()).call());
 	}
 
 	private void setProjectDescription(File targetProjectDir, String projectDescription)
