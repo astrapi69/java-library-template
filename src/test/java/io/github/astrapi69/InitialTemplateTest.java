@@ -1,14 +1,18 @@
 package io.github.astrapi69;
 
+import de.alpharogroup.string.StringExtensions;
 import io.github.astrapi69.delete.DeleteFileExtensions;
 import io.github.astrapi69.io.file.filter.PrefixFileFilter;
 import io.github.astrapi69.modify.ModifyFileExtensions;
 import io.github.astrapi69.search.PathFinder;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
+import org.apache.commons.text.WordUtils;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class InitialTemplateTest
 {
@@ -24,6 +28,39 @@ class InitialTemplateTest
 
 	}
 
+	@Test
+	//	@Disabled
+	public void testCamelCase() throws IOException
+	{
+		String actual;
+		String expected;
+		String input;
+		String templateProjectName;
+		templateProjectName = DependenciesData.JAVA_LIBRARY_TEMPLATE_NAME;
+
+		input = "LORD_OF_THE_RINGS";
+		expected = "LordOfTheRings";
+		actual = WordUtils
+			.capitalizeFully(input, new char[]{'_'}).replaceAll("_", "");
+		assertEquals(expected, actual);
+
+		input = templateProjectName;
+		expected = "JavaLibraryTemplate";
+		assertEquals(expected, WordUtils
+			.capitalizeFully(input, new char[]{'-'}).replaceAll("-", ""));
+
+		actual = getProjectVersionKeyName(input);
+		expected = "javaLibraryTemplateVersion";
+		assertEquals(expected, actual);
+	}
+
+	private String getProjectVersionKeyName(String projectName) {
+		String camelCased = WordUtils
+			.capitalizeFully(projectName, new char[]{'-'}).replaceAll("-", "");
+		String projectVersionKeyName = StringExtensions.firstCharacterToLowerCase(camelCased);
+		return projectVersionKeyName + "Version";
+	}
+
 	private void renameToConcreteProject(final String projectDescription) throws IOException
 	{
 		String concreteProjectName;
@@ -33,6 +70,7 @@ class InitialTemplateTest
 		File dotTravisYml;
 		File dotGithubDir;
 		File codeOfConduct;
+		File readme;
 		File initialTemplateClassFile;
 		//
 		sourceProjectDir = PathFinder.getProjectDirectory();
@@ -70,8 +108,28 @@ class InitialTemplateTest
 			return input
 				.replaceAll("projectDescription=Template project for create java library projects",
 					"projectDescription=" + projectDescription) + System.lineSeparator();
-		});        // create run configurations for current project
+		});
 
+		// adapt README.md file
+		readme = new File(sourceProjectDir, DependenciesData.README_FILENAME);
+		ModifyFileExtensions.modifyFile(readme.toPath(), (count, input) -> {
+			return input.replaceAll(templateProjectName, concreteProjectName) + System
+				.lineSeparator();
+		});
+
+		ModifyFileExtensions.modifyFile(readme.toPath(), (count, input) -> {
+			return input
+				.replaceAll("Template project for create java library projects",
+					projectDescription) + System.lineSeparator();
+		});
+
+		ModifyFileExtensions.modifyFile(readme.toPath(), (count, input) -> {
+			return input
+				.replaceAll("javaLibraryTemplateVersion",
+					getProjectVersionKeyName(concreteProjectName)) + System.lineSeparator();
+		});
+
+		// create run configurations for current project
 		String sourceProjectDirNamePrefix;
 		String targetProjectDirNamePrefix;
 		CopyGradleRunConfigurations copyGradleRunConfigurationsData;

@@ -45,6 +45,7 @@ public class DependenciesData
 	public static final String DOT_GITHUB_DIRECTORY_NAME = ".github";
 	public static final String DOT_TRAVIS_FILENAME = ".travis.yml";
 	public static final String CODE_OF_CONDUCT_FILENAME = "CODE_OF_CONDUCT.md";
+	public static final String README_FILENAME = "README.md";
 
 	File buildGradle;
 	File settingsGradle;
