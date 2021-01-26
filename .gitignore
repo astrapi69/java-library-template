@@ -10,8 +10,8 @@
 *.iml
 *.ipr
 !.idea/runConfigurations
-# .idea/**
-# .idea/*.*
+.idea/**
+.idea/*.*
 
 #################
 # eclipse files #

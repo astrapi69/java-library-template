@@ -38,6 +38,7 @@ import java.util.Properties;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = false)
 public class DependenciesData
 {
+	public static final String JAVA_LIBRARY_TEMPLATE_NAME = "java-library-template";
 	public static final String SETTINGS_GRADLE_FILENAME = "settings.gradle";
 	public static final String BUILD_GRADLE_NAME = "build.gradle";
 	public static final String GRADLE_PROPERTIES_NAME = "gradle.properties";

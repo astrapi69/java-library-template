@@ -188,7 +188,6 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:$lombokVersion")
     testCompileOnly("org.projectlombok:lombok:$lombokVersion")
     testAnnotationProcessor("org.projectlombok:lombok:$lombokVersion")
-    testImplementation("org.eclipse.jgit:org.eclipse.jgit:$jgitVersion")
     testImplementation("io.github.astrapi69:silly-io:$sillyIoVersion")
     testImplementation("de.alpharogroup:silly-strings:$sillyStringsVersion")
     testImplementation("de.alpharogroup:silly-collections:$sillyCollectionsVersion")
