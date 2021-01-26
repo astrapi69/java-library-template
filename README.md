@@ -56,7 +56,7 @@ Than you can add the dependency to your dependencies:
 	<properties>
 			...
 		<!-- java-library-template version -->
-		<java-library-template.version>1.2</java-library-template.version>
+		<java-library-template.version>1</java-library-template.version>
 			...
 	</properties>
 			...
@@ -78,7 +78,7 @@ your project `build.gradle` if you want to import the core functionality of java
 
 define version in file gradle.properties
 ```
-javaLibraryTemplateVersion=1.2
+javaLibraryTemplateVersion=1
 ```
 
 or in build.gradle ext area
@@ -86,7 +86,7 @@ or in build.gradle ext area
 ```
 ext {
 			...
-    javaLibraryTemplateVersion = "1.2"
+    javaLibraryTemplateVersion = "1"
 			...
 }
 ```
