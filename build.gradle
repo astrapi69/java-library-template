@@ -6,11 +6,13 @@ buildscript {
         }
     }
     dependencies {
+        classpath "io.freefair.gradle:lombok-plugin:$gradlePluginLombokVersion"
         classpath "com.github.ben-manes:gradle-versions-plugin:$gradlePluginVersionsVersion"
         classpath "gradle.plugin.com.hierynomus.gradle.plugins:license-gradle-plugin:$licenseGradlePluginVersion"
     }
 }
 
+apply plugin: "io.freefair.lombok"
 apply plugin: "java"
 apply plugin: "java-library"
 apply plugin: "maven-publish"
