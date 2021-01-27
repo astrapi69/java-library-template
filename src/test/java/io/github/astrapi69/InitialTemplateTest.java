@@ -1,64 +1,31 @@
 package io.github.astrapi69;
 
-import de.alpharogroup.string.StringExtensions;
 import io.github.astrapi69.delete.DeleteFileExtensions;
+import io.github.astrapi69.gradle.migration.data.CopyGradleRunConfigurations;
+import io.github.astrapi69.gradle.migration.data.DependenciesInfo;
+import io.github.astrapi69.gradle.migration.data.GradleRunConfigurationsCopier;
 import io.github.astrapi69.io.file.filter.PrefixFileFilter;
 import io.github.astrapi69.modify.ModifyFileExtensions;
 import io.github.astrapi69.search.PathFinder;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
-import org.apache.commons.text.WordUtils;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 class InitialTemplateTest
 {
 
 	@Test
-	//	@Disabled
+	@Disabled
 	public void testRenameToConcreteProject() throws IOException
 	{
 		String projectDescription;
-
-		projectDescription = "projectDescription-foobar-projectDescription";
+		// TODO change the following description with your project description
+		// and then remove the annotation Disabled and run this unit test method
+		projectDescription = "!!!Chage this description with your project description!!!";
 		renameToConcreteProject(projectDescription);
-
-	}
-
-	@Test
-	//	@Disabled
-	public void testCamelCase() throws IOException
-	{
-		String actual;
-		String expected;
-		String input;
-		String templateProjectName;
-		templateProjectName = DependenciesData.JAVA_LIBRARY_TEMPLATE_NAME;
-
-		input = "LORD_OF_THE_RINGS";
-		expected = "LordOfTheRings";
-		actual = WordUtils
-			.capitalizeFully(input, new char[]{'_'}).replaceAll("_", "");
-		assertEquals(expected, actual);
-
-		input = templateProjectName;
-		expected = "JavaLibraryTemplate";
-		assertEquals(expected, WordUtils
-			.capitalizeFully(input, new char[]{'-'}).replaceAll("-", ""));
-
-		actual = getProjectVersionKeyName(input);
-		expected = "javaLibraryTemplateVersion";
-		assertEquals(expected, actual);
-	}
-
-	private String getProjectVersionKeyName(String projectName) {
-		String camelCased = WordUtils
-			.capitalizeFully(projectName, new char[]{'-'}).replaceAll("-", "");
-		String projectVersionKeyName = StringExtensions.firstCharacterToLowerCase(camelCased);
-		return projectVersionKeyName + "Version";
 	}
 
 	private void renameToConcreteProject(final String projectDescription) throws IOException
@@ -74,23 +41,23 @@ class InitialTemplateTest
 		File initialTemplateClassFile;
 		//
 		sourceProjectDir = PathFinder.getProjectDirectory();
-		templateProjectName = DependenciesData.JAVA_LIBRARY_TEMPLATE_NAME;
+		templateProjectName = DependenciesInfo.JAVA_LIBRARY_TEMPLATE_NAME;
 		concreteProjectName = sourceProjectDir.getName();
 		// adapt settings.gradle file
-		settingsGradle = new File(sourceProjectDir, DependenciesData.SETTINGS_GRADLE_FILENAME);
+		settingsGradle = new File(sourceProjectDir, DependenciesInfo.SETTINGS_GRADLE_FILENAME);
 		ModifyFileExtensions.modifyFile(settingsGradle.toPath(), (count, input) -> {
 			return input.replaceAll(templateProjectName, concreteProjectName) + System
 				.lineSeparator();
 		});
 		// adapt CODE_OF_CONDUCT.md file
-		dotGithubDir = new File(sourceProjectDir, DependenciesData.DOT_GITHUB_DIRECTORY_NAME);
-		codeOfConduct = new File(dotGithubDir, DependenciesData.CODE_OF_CONDUCT_FILENAME);
+		dotGithubDir = new File(sourceProjectDir, DependenciesInfo.DOT_GITHUB_DIRECTORY_NAME);
+		codeOfConduct = new File(dotGithubDir, DependenciesInfo.CODE_OF_CONDUCT_FILENAME);
 		ModifyFileExtensions.modifyFile(codeOfConduct.toPath(), (count, input) -> {
 			return input.replaceAll(templateProjectName, concreteProjectName) + System
 				.lineSeparator();
 		});
 		// adapt .travis.yml file
-		dotTravisYml = new File(sourceProjectDir, DependenciesData.DOT_TRAVIS_FILENAME);
+		dotTravisYml = new File(sourceProjectDir, DependenciesInfo.DOT_TRAVIS_FILENAME);
 		ModifyFileExtensions.modifyFile(dotTravisYml.toPath(), (count, input) -> {
 			return input.replaceAll(templateProjectName, concreteProjectName) + System
 				.lineSeparator();
@@ -102,7 +69,7 @@ class InitialTemplateTest
 
 		DeleteFileExtensions.delete(initialTemplateClassFile);
 		// change projectDescription from gradle.properties
-		File gradleProperties = new File(sourceProjectDir, DependenciesData.GRADLE_PROPERTIES_NAME);
+		File gradleProperties = new File(sourceProjectDir, DependenciesInfo.GRADLE_PROPERTIES_NAME);
 
 		ModifyFileExtensions.modifyFile(gradleProperties.toPath(), (count, input) -> {
 			return input
@@ -111,7 +78,7 @@ class InitialTemplateTest
 		});
 
 		// adapt README.md file
-		readme = new File(sourceProjectDir, DependenciesData.README_FILENAME);
+		readme = new File(sourceProjectDir, DependenciesInfo.README_FILENAME);
 		ModifyFileExtensions.modifyFile(readme.toPath(), (count, input) -> {
 			return input.replaceAll(templateProjectName, concreteProjectName) + System
 				.lineSeparator();
@@ -126,7 +93,7 @@ class InitialTemplateTest
 		ModifyFileExtensions.modifyFile(readme.toPath(), (count, input) -> {
 			return input
 				.replaceAll("javaLibraryTemplateVersion",
-					getProjectVersionKeyName(concreteProjectName)) + System.lineSeparator();
+					GradleRunConfigurationsCopier.getProjectVersionKeyName(concreteProjectName)) + System.lineSeparator();
 		});
 
 		// create run configurations for current project
