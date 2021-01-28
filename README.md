@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Build Status](https://travis-ci.com/astrapi69/java-library-template.svg?branch=master)](https://travis-ci.com/astrapi69/java-library-template)
-[![Coverage Status](https://coveralls.io/repos/github/astrapi69/java-library-template/badge.svg?branch=develop)](https://coveralls.io/github/astrapi69/java-library-template?branch=develop)
+[![Coverage Status](https://codecov.io/gh/astrapi69/java-library-template/branch/develop/graph/badge.svg)](https://codecov.io/gh/astrapi69/java-library-template)
 [![Open Issues](https://img.shields.io/github/issues/astrapi69/java-library-template.svg?style=flat)](https://github.com/astrapi69/java-library-template/issues)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/java-library-template/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/java-library-template)
 [![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/java-library-template.svg)](http://www.javadoc.io/doc/io.github.astrapi69/java-library-template)
