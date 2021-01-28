@@ -1,14 +1,7 @@
 ## Change log
 ----------------------
 
-Version 1.1-SNAPSHOT
--------------
-
-CHANGED:
-
-- update gradle to new version 6.8.1
-
-Version 1
+Version 1-SNAPSHOT
 -------------
 
 ADDED:
