@@ -12,9 +12,14 @@
 
 </div>
 
-Template project for create java library projects
+Template project for create java library projects. 
 
 If you like this project put a ⭐ and donate
+
+# Template from this project
+
+You can derive your java library project from this you can easily and adapt to your specific project if you follow the
+instruction from this [medium blog](https://asterios-raptis.medium.com/new-github-template-repository-feature-ec09afe261b8)
 
 ## Note
 
