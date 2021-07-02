@@ -31,6 +31,68 @@ instruction from this [medium blog](https://asterios-raptis.medium.com/new-githu
 
 No animals were harmed in the making of this library.
 
+## License
+
+The source code comes under the liberal MIT License, making java-library-template great for all types of applications.
+
+## Maven dependency
+
+Maven dependency is now on sonatype.
+Check out [sonatype repository](https://oss.sonatype.org/index.html#nexus-search;gav~io.github.astrapi69~java-library-template~~~) for latest snapshots and releases.
+
+Add the following maven dependency to your project `pom.xml` if you want to import the core 
+functionality of java-library-template:
+
+Than you can add the dependency to your dependencies:
+
+	<properties>
+			...
+		<!-- java-library-template version -->
+		<java-library-template.version>1</java-library-template.version>
+			...
+	</properties>
+			...
+		<dependencies>
+			...
+			<!-- java-library-template DEPENDENCY -->
+			<dependency>
+				<groupId>io.github.astrapi69</groupId>
+				<artifactId>java-library-template</artifactId>
+				<version>${java-library-template.version}</version>
+			</dependency>
+			...
+		</dependencies>
+
+## gradle dependency
+
+You can first define the version in the ext section and add than the following gradle dependency to
+your project `build.gradle` if you want to import the core functionality of java-library-template:
+
+define version in file gradle.properties
+```
+javaLibraryTemplateVersion=1
+```
+
+or in build.gradle ext area
+
+```
+ext {
+			...
+    javaLibraryTemplateVersion = "1"
+			...
+}
+```
+
+then add the dependency to the dependencies area
+
+```
+dependencies {
+			...
+    implementation("io.github.astrapi69:java-library-template:$javaLibraryTemplateVersion")
+			...
+}
+```
+
 # Donations
 
 This project is kept as an open source product and relies on contributions to remain being
@@ -84,68 +146,6 @@ or over Monero(XMR) with:
 alt="Donation Monero Wallet" width="250"/>
 
 or over the donation buttons at the top.
-
-## License
-
-The source code comes under the liberal MIT License, making java-library-template great for all types of applications.
-
-## Maven dependency
-
-Maven dependency is now on sonatype.
-Check out [sonatype repository](https://oss.sonatype.org/index.html#nexus-search;gav~io.github.astrapi69~java-library-template~~~) for latest snapshots and releases.
-
-Add the following maven dependency to your project `pom.xml` if you want to import the core 
-functionality of java-library-template:
-
-Than you can add the dependency to your dependencies:
-
-	<properties>
-			...
-		<!-- java-library-template version -->
-		<java-library-template.version>1</java-library-template.version>
-			...
-	</properties>
-			...
-		<dependencies>
-			...
-			<!-- java-library-template DEPENDENCY -->
-			<dependency>
-				<groupId>io.github.astrapi69</groupId>
-				<artifactId>java-library-template</artifactId>
-				<version>${java-library-template.version}</version>
-			</dependency>
-			...
-		</dependencies>
-
-## gradle dependency
-
-You can first define the version in the ext section and add than the following gradle dependency to
-your project `build.gradle` if you want to import the core functionality of java-library-template:
-
-define version in file gradle.properties
-```
-javaLibraryTemplateVersion=1
-```
-
-or in build.gradle ext area
-
-```
-ext {
-			...
-    javaLibraryTemplateVersion = "1"
-			...
-}
-```
-
-and than add the dependency to the dependencies area
-
-```
-dependencies {
-			...
-    implementation("io.github.astrapi69:java-library-template:$javaLibraryTemplateVersion")
-			...
-}
-```
 
 ## Semantic Versioning
 
