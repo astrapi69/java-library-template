@@ -98,11 +98,17 @@ dependencies {
 This project is kept as an open source product and relies on contributions to remain being
 developed. If you like this library, please consider a donation
 
-over paypal: <br><br>
+over paypal:
+<br>
+<br>
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MJ7V43GU2H386" target="_blank">
-<img src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" alt="PayPal this" title="PayPal – The safer, easier way to pay online!" style="border: none" />
+    <img src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif"
+         alt="PayPal this"
+         title="PayPal – The safer, easier way to pay online!"
+         style="border: none" />
 </a>
-<br><br>
+<br>
+<br>
 or over bitcoin(BTC) with this address:
 
 bc1ql2y99q7e8psndhcc3gferk03esw3qqf677rhjy
