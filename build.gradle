@@ -44,6 +44,12 @@ repositories {
     mavenCentral()
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    // uncomment the next line for build with compiler argument -Xlint:deprecation
+    // options.compilerArgs << "-Xlint:deprecation"
+}
+
 task sourcesJar(type: Jar) {
     archiveClassifier.set("sources")
     from(sourceSets.main.allJava)
