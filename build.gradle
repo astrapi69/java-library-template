@@ -70,19 +70,6 @@ javadoc {
     }
 }
 
-test {
-    useJUnitPlatform()
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled true
-        html.enabled true
-    }
-}
-
-check.dependsOn jacocoTestReport
-
 def releaseVersion = !version.endsWith("SNAPSHOT")
 
 publishing {
@@ -196,6 +183,19 @@ license {
 // workhack for license issue #76
 gradle.startParameter.excludedTaskNames += "licenseMain"
 gradle.startParameter.excludedTaskNames += "licenseTest"
+
+test {
+    useJUnitPlatform()
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled true
+    }
+}
+
+check.dependsOn jacocoTestReport
 
 dependencies {
     compileOnly("org.projectlombok:lombok:$lombokVersion")
