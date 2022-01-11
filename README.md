@@ -57,7 +57,6 @@ then add the dependency to the dependencies area
 
 ```
     implementation("io.github.astrapi69:java-library-template:$javaLibraryTemplateVersion")
-}
 ```
 
 ## Maven dependency
