@@ -14,7 +14,7 @@
 
 </div>
 
-Template project for create java library projects. 
+Template project for create java library projects.
 
 > Please support this project by simply putting a Github <!-- Place this tag where you want the button to render. -->
 <a class="github-button" href="https://github.com/astrapi69/java-library-template" data-icon="octicon-star" aria-label="Star astrapi69/java-library-template on GitHub">Star ⭐</a>
@@ -64,28 +64,28 @@ then add the dependency to the dependencies area
 Maven dependency is now on sonatype.
 Check out [sonatype repository](https://oss.sonatype.org/index.html#nexus-search;gav~io.github.astrapi69~java-library-template~~~) for latest snapshots and releases.
 
-Add the following maven dependency to your project `pom.xml` if you want to import the core 
+Add the following maven dependency to your project `pom.xml` if you want to import the core
 functionality of java-library-template:
 
 Than you can add the dependency to your dependencies:
 
-	<properties>
-			...
-		<!-- java-library-template version -->
-		<java-library-template.version>1</java-library-template.version>
-			...
-	</properties>
-			...
-		<dependencies>
-			...
-			<!-- java-library-template DEPENDENCY -->
-			<dependency>
-				<groupId>io.github.astrapi69</groupId>
-				<artifactId>java-library-template</artifactId>
-				<version>${java-library-template.version}</version>
-			</dependency>
-			...
-		</dependencies>
+    <properties>
+            ...
+        <!-- java-library-template version -->
+        <java-library-template.version>1</java-library-template.version>
+            ...
+    </properties>
+            ...
+        <dependencies>
+            ...
+            <!-- java-library-template DEPENDENCY -->
+            <dependency>
+                <groupId>io.github.astrapi69</groupId>
+                <artifactId>java-library-template</artifactId>
+                <version>${java-library-template.version}</version>
+            </dependency>
+            ...
+        </dependencies>
 
 # Donations
 
@@ -97,9 +97,9 @@ over paypal:
 <br>
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MJ7V43GU2H386" target="_blank">
     <img src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif"
-         alt="PayPal this"
-         title="PayPal – The safer, easier way to pay online!"
-         style="border: none" />
+        alt="PayPal this"
+        title="PayPal – The safer, easier way to pay online!"
+        style="border: none" />
 </a>
 <br>
 <br>
@@ -175,4 +175,3 @@ Do not hesitate to contact the java-library-template developers with your questi
 ## Similar projects
 
 ## Credits
-
