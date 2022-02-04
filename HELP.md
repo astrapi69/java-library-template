@@ -38,7 +38,7 @@ For setting secrets for your repository you can consider the following sections:
 * [Creating encrypted secrets for a repository](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)
 * [Creating encrypted secrets for an organization](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-organization)
 
-Beware in step where you set the name you have to set for 'ossrhUsername' the value: 'ossrhUsername' and not 'OSSRHUSERNAME' 
+Beware in step where you set the name you have to set for 'ossrhUsername' the value: 'ossrhUsername' and not 'OSSRHUSERNAME'
 The same procedure for the secret 'ossrhPassword'
 
 Note that for organizations you only need to set the secrets once.
@@ -80,7 +80,7 @@ jobs:
 
 ```
 
-So you have to set two secrets: OSSRHUSERNAME, OSSRHPASSWORD. And one optional if your repository is not public 
+So you have to set two secrets: OSSRHUSERNAME, OSSRHPASSWORD. And one optional if your repository is not public
 CODECOV_TOKEN where you save your codecov token value.
 
 ### Reference Documentation
@@ -94,4 +94,3 @@ For further reference, please consider the following sections:
 These additional references should also help you:
 
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
-
