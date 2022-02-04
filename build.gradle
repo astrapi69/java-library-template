@@ -44,7 +44,6 @@ spotless {
     }
 }
 
-
 task tagRelease {
     description = "Tags the current head with the project\'s version."
     doLast {
