@@ -9,7 +9,7 @@
 [![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/java-library-template.svg)](http://www.javadoc.io/doc/io.github.astrapi69/java-library-template)
 [![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Donate](https://img.shields.io/badge/donate-❤-ff2244.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GVBTWLRAZ7HB8)
-[![Hits Of Code](https://hitsofcode.com/github/astrapi69/java-library-template?branch=develop)](https://hitsofcode.com/github/astrapi69/java-library-template/view?branch=develop~~~~)
+[![Hits Of Code](https://hitsofcode.com/github/astrapi69/java-library-template?branch=develop)](https://hitsofcode.com/github/astrapi69/java-library-template/view?branch=develop)
 [![Lines Of Code](https://tokei.rs/b1/github/astrapi69/java-library-template)](https://github.com/astrapi69/java-library-template)
 
 </div>
