@@ -38,19 +38,21 @@ The source code comes under the liberal MIT License, making java-library-templat
 
 ## gradle dependency
 
+Replace the variable ${latestVersion} with the current latest version: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/java-library-template/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/java-library-template)
+
 You can first define the version in the ext section and add than the following gradle dependency to
 your project `build.gradle` if you want to import the core functionality of java-library-template:
 
 define version in file gradle.properties
 
 ```
-javaLibraryTemplateVersion=1
+javaLibraryTemplateVersion=${latestVersion}
 ```
 
 or in build.gradle ext area
 
 ```
-    javaLibraryTemplateVersion = "1"
+    javaLibraryTemplateVersion = "${latestVersion}"
 ```
 
 then add the dependency to the dependencies area
@@ -72,7 +74,7 @@ Than you can add the dependency to your dependencies:
     <properties>
             ...
         <!-- java-library-template version -->
-        <java-library-template.version>1</java-library-template.version>
+        <java-library-template.version>${latestVersion}</java-library-template.version>
             ...
     </properties>
             ...
