@@ -34,37 +34,10 @@ apply from: "formatting.gradle"
 apply from: "licensing.gradle"
 apply from: "testing.gradle"
 apply from: "packaging.gradle"
+apply from: "repositories.gradle"
+apply from: "grgit.gradle"
 
 sourceCompatibility = "$projectSourceCompatibility" as Object
-
-task tagRelease {
-    description = "Tags the current head with the project\'s version."
-    doLast {
-        grgit.tag.add {
-            name = "RELEASE-${project.version.toString()}"
-            message = "New release in version ${version}"
-        }
-    }
-}
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-    maven {
-        name "Sonatype Nexus Releases"
-        url "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-        mavenContent {
-            releasesOnly()
-        }
-    }
-    maven {
-        name "Sonatype Nexus Snapshots"
-        url "https://oss.sonatype.org/content/repositories/snapshots"
-        mavenContent {
-            snapshotsOnly()
-        }
-    }
-}
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
