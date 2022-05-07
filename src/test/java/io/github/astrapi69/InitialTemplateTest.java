@@ -1,8 +1,8 @@
 /**
  * The MIT License
- *
+ * <p>
  * Copyright (C) 2021 Asterios Raptis
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
  * "Software"), to deal in the Software without restriction, including
@@ -10,10 +10,10 @@
  * distribute, sublicense, and/or sell copies of the Software, and to
  * permit persons to whom the Software is furnished to do so, subject to
  * the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be
  * included in all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -25,12 +25,12 @@
 package io.github.astrapi69;
 
 import io.github.astrapi69.file.delete.DeleteFileExtensions;
+import io.github.astrapi69.file.modify.ModifyFileExtensions;
+import io.github.astrapi69.file.search.PathFinder;
 import io.github.astrapi69.gradle.migration.data.CopyGradleRunConfigurations;
 import io.github.astrapi69.gradle.migration.data.DependenciesInfo;
 import io.github.astrapi69.gradle.migration.data.GradleRunConfigurationsCopier;
 import io.github.astrapi69.io.file.filter.PrefixFileFilter;
-import io.github.astrapi69.file.modify.ModifyFileExtensions;
-import io.github.astrapi69.file.search.PathFinder;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -41,9 +41,7 @@ import java.io.IOException;
 class InitialTemplateTest
 {
 
-	@Test
-	@Disabled
-	public void testRenameToConcreteProject() throws IOException
+	@Test @Disabled public void testRenameToConcreteProject() throws IOException
 	{
 		String projectDescription;
 		// TODO change the following description with your project description
@@ -69,23 +67,15 @@ class InitialTemplateTest
 		concreteProjectName = sourceProjectDir.getName();
 		// adapt settings.gradle file
 		settingsGradle = new File(sourceProjectDir, DependenciesInfo.SETTINGS_GRADLE_FILENAME);
-		ModifyFileExtensions.modifyFile(settingsGradle.toPath(), (count, input) -> {
-			return input.replaceAll(templateProjectName, concreteProjectName)
-				+ System.lineSeparator();
-		});
+		ModifyFileExtensions.modifyFile(settingsGradle.toPath(),
+			(count, input) -> input.replaceAll(templateProjectName,
+				concreteProjectName) + System.lineSeparator());
 		// adapt CODE_OF_CONDUCT.md file
 		dotGithubDir = new File(sourceProjectDir, DependenciesInfo.DOT_GITHUB_DIRECTORY_NAME);
 		codeOfConduct = new File(dotGithubDir, DependenciesInfo.CODE_OF_CONDUCT_FILENAME);
-		ModifyFileExtensions.modifyFile(codeOfConduct.toPath(), (count, input) -> {
-			return input.replaceAll(templateProjectName, concreteProjectName)
-				+ System.lineSeparator();
-		});
-		// adapt .travis.yml file
-		dotTravisYml = new File(sourceProjectDir, DependenciesInfo.DOT_TRAVIS_FILENAME);
-		ModifyFileExtensions.modifyFile(dotTravisYml.toPath(), (count, input) -> {
-			return input.replaceAll(templateProjectName, concreteProjectName)
-				+ System.lineSeparator();
-		});
+		ModifyFileExtensions.modifyFile(codeOfConduct.toPath(),
+			(count, input) -> input.replaceAll(templateProjectName,
+				concreteProjectName) + System.lineSeparator());
 		// delete template class
 		initialTemplateClassFile = PathFinder.getRelativePath(PathFinder.getSrcMainJavaDir(), "io",
 			"github", "astrapi69", "InitialTemplate.java");
@@ -94,29 +84,25 @@ class InitialTemplateTest
 		// change projectDescription from gradle.properties
 		File gradleProperties = new File(sourceProjectDir, DependenciesInfo.GRADLE_PROPERTIES_NAME);
 
-		ModifyFileExtensions.modifyFile(gradleProperties.toPath(), (count, input) -> {
-			return input.replaceAll(
+		ModifyFileExtensions.modifyFile(gradleProperties.toPath(),
+			(count, input) -> input.replaceAll(
 				"projectDescription=Template project for create java library projects",
-				"projectDescription=" + projectDescription) + System.lineSeparator();
-		});
+				"projectDescription=" + projectDescription) + System.lineSeparator());
 
 		// adapt README.md file
 		readme = new File(sourceProjectDir, DependenciesInfo.README_FILENAME);
-		ModifyFileExtensions.modifyFile(readme.toPath(), (count, input) -> {
-			return input.replaceAll(templateProjectName, concreteProjectName)
-				+ System.lineSeparator();
-		});
+		ModifyFileExtensions.modifyFile(readme.toPath(),
+			(count, input) -> input.replaceAll(templateProjectName,
+				concreteProjectName) + System.lineSeparator());
 
-		ModifyFileExtensions.modifyFile(readme.toPath(), (count, input) -> {
-			return input.replaceAll("Template project for create java library projects",
-				projectDescription) + System.lineSeparator();
-		});
+		ModifyFileExtensions.modifyFile(readme.toPath(),
+			(count, input) -> input.replaceAll("Template project for create java library projects",
+				projectDescription) + System.lineSeparator());
 
-		ModifyFileExtensions.modifyFile(readme.toPath(), (count, input) -> {
-			return input.replaceAll("javaLibraryTemplateVersion",
-				GradleRunConfigurationsCopier.getProjectVersionKeyName(concreteProjectName))
-				+ System.lineSeparator();
-		});
+		ModifyFileExtensions.modifyFile(readme.toPath(),
+			(count, input) -> input.replaceAll("javaLibraryTemplateVersion",
+				GradleRunConfigurationsCopier.getProjectVersionKeyName(
+					concreteProjectName)) + System.lineSeparator());
 
 		// create run configurations for current project
 		String sourceProjectDirNamePrefix;
@@ -128,9 +114,9 @@ class InitialTemplateTest
 		targetProjectName = concreteProjectName;
 		sourceProjectDirNamePrefix = sourceProjectDir.getParent() + "/";
 		targetProjectDirNamePrefix = sourceProjectDirNamePrefix;
-		copyGradleRunConfigurationsData = GradleRunConfigurationsCopier
-			.newCopyGradleRunConfigurations(sourceProjectName, targetProjectName,
-				sourceProjectDirNamePrefix, targetProjectDirNamePrefix, true, true);
+		copyGradleRunConfigurationsData = GradleRunConfigurationsCopier.newCopyGradleRunConfigurations(
+			sourceProjectName, targetProjectName, sourceProjectDirNamePrefix,
+			targetProjectDirNamePrefix, true, true);
 		GradleRunConfigurationsCopier.of(copyGradleRunConfigurationsData).copy();
 
 		// delete template run configurations
