@@ -165,6 +165,10 @@ Release version numbers will be incremented in the following format:
 
 For detailed information on versioning you can visit the [wiki page](https://github.com/lightblueseas/mvn-parent-projects/wiki/Semantic-Versioning).
 
+## What can i do to support this project
+
+You can donate or contribute solve issues or pull request. Every support are welcome.
+
 ## Want to Help and improve it? ###
 
 The source code for java-library-template are on GitHub. Please feel free to fork and send pull requests!
