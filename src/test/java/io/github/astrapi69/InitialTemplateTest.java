@@ -24,6 +24,12 @@
  */
 package io.github.astrapi69;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
 import io.github.astrapi69.file.delete.DeleteFileExtensions;
 import io.github.astrapi69.file.modify.ModifyFileExtensions;
 import io.github.astrapi69.file.search.PathFinder;
@@ -32,11 +38,6 @@ import io.github.astrapi69.gradle.migration.data.DependenciesInfo;
 import io.github.astrapi69.gradle.migration.data.GradleRunConfigurationsCopier;
 import io.github.astrapi69.io.file.filter.PrefixFileFilter;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-
-import java.io.File;
-import java.io.IOException;
 
 class InitialTemplateTest
 {
@@ -58,7 +59,6 @@ class InitialTemplateTest
 		String templateProjectName;
 		File sourceProjectDir;
 		File settingsGradle;
-		File dotTravisYml;
 		File dotGithubDir;
 		File codeOfConduct;
 		File readme;
