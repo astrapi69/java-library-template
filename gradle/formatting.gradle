@@ -12,7 +12,7 @@ spotless {
     }
     java {
         // export config file: https://github.com/diffplug/spotless/blob/main/ECLIPSE_SCREENSHOTS.md#creating-spotlessimportorder
-        importOrderFile('src/test/resources/importorder.properties') // import order file as exported from eclipse
-        eclipse("4.21.0").configFile("src/test/resources/alpharo-formatter.xml")
+        importOrderFile('src/test/resources/spotless/importorder.properties') // import order file as exported from eclipse
+        eclipse("4.21.0").configFile("src/test/resources/spotless/alpharo-formatter.xml")
     }
 }
