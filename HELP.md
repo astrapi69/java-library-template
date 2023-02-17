@@ -9,7 +9,7 @@ all unrelated files and test dependencies that you do not need.
 
 Also delete the section '# Template from this project' in the README.md.
 
-If you are use intellij ide than you can add the new gradle run configurations to git and delete the run configurations 
+If you are use intellij ide than you can add the new gradle run configurations to git and delete the run configurations
 for the unit test and the unit test class itself.
 
 ### Setting Secrets
