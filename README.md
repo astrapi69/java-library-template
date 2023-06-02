@@ -70,7 +70,7 @@ Check out [sonatype repository](https://oss.sonatype.org/index.html#nexus-search
 Add the following maven dependency to your project `pom.xml` if you want to import the core
 functionality of java-library-template:
 
-Than you can add the dependency to your dependencies:
+Then you can add the dependency to your dependencies:
 
     <properties>
             ...
