@@ -10,6 +10,6 @@ dependencies {
     testImplementation("io.github.astrapi69:gradle-migration-data:$gradleMigrationDataVersion")
     testImplementation("org.apache.commons:commons-text:$commonsTextVersion")
     testImplementation("com.github.meanbeanlib:meanbean:$meanbeanVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
