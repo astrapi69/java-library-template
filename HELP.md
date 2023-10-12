@@ -35,7 +35,7 @@ ossrhPassword=ReplaceThisWithYourSecretSonatypePassword
 (Note that you have to replace 'ReplaceThisWithYourSonatypeUsername' and 'ReplaceThisWithYourSecretSonatypePassword' 
 with your corresponding username and password)
 
-Your local build is now builds successful. But the build in your actions fail because you do not have set the secrets
+Your local build builds now successful. But the build in your actions fail because you do not have set the secrets
 in your repository.
 
 For setting secrets for your repository you can consider the following sections:
