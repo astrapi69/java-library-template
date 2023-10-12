@@ -48,7 +48,6 @@ The same procedure for the secret 'ossrhPassword'
 
 Note that for organizations you only need to set the secrets once.
 
-
 The following source code is the complete gradle.yml in the repository folder '.github/workflows'
 
 ```
