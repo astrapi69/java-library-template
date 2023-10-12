@@ -61,6 +61,7 @@ then add the dependency to the dependencies area
 ```
     implementation("io.github.astrapi69:java-library-template:$javaLibraryTemplateVersion")
 ```
+
 ## 📸 Snapshots
 
 [![Snapshot](https://img.shields.io/badge/dynamic/xml?url=https://oss.sonatype.org/service/local/repositories/snapshots/content/io/github/astrapi69/java-library-template/maven-metadata.xml&label=snapshot&color=red&query=.//versioning/latest)](https://oss.sonatype.org/content/repositories/snapshots/io/github/astrapi69/java-library-template/)
@@ -83,6 +84,7 @@ repositories {
 ```
 }
 ```
+
 ## Maven dependency
 
 Maven dependency is now on sonatype.

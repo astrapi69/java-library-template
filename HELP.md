@@ -29,11 +29,11 @@ your username and your secret password that have to be kept secret. So in your l
 looks for instance like this:
 
 ```
-ossrhUsername=YourSonatypeUsername
-ossrhPassword=YourSecretSonatypePassword
+ossrhUsername=ReplaceThisWithYourSonatypeUsername
+ossrhPassword=ReplaceThisWithYourSecretSonatypePassword
 ```
-(Note that you have to replace 'YourSonatypeUsername' and 'YourSecretSonatypePassword' with your corresponding username
-and password)
+(Note that you have to replace 'ReplaceThisWithYourSonatypeUsername' and 'ReplaceThisWithYourSecretSonatypePassword' 
+with your corresponding username and password)
 
 Your local build is now builds successful. But the build in your actions fail because you do not have set the secrets
 in your repository.
