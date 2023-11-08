@@ -79,7 +79,7 @@ repositories {
         mavenContent {
             snapshotsOnly()
         }
-    }    
+    }
 ```
 ```
 }

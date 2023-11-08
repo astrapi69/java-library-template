@@ -32,7 +32,7 @@ looks for instance like this:
 ossrhUsername=ReplaceThisWithYourSonatypeUsername
 ossrhPassword=ReplaceThisWithYourSecretSonatypePassword
 ```
-(Note that you have to replace 'ReplaceThisWithYourSonatypeUsername' and 'ReplaceThisWithYourSecretSonatypePassword' 
+(Note that you have to replace 'ReplaceThisWithYourSonatypeUsername' and 'ReplaceThisWithYourSecretSonatypePassword'
 with your corresponding username and password)
 
 Your local build builds now successful. But the build in your actions fail because you do not have set the secrets
