@@ -9,11 +9,11 @@ buildscript {
         }
     }
     dependencies {
-        classpath "io.freefair.gradle:lombok-plugin:$gradlePluginLombokVersion"
-        classpath "com.github.ben-manes:gradle-versions-plugin:$gradlePluginVersionsVersion"
-        classpath "gradle.plugin.com.hierynomus.gradle.plugins:license-gradle-plugin:$licenseGradlePluginVersion"
-        classpath "org.ajoberstar.grgit:grgit-gradle:$grgitGradlePluginVersion"
-        classpath "com.diffplug.spotless:spotless-plugin-gradle:$spotlessGradlePluginVersion"
+        classpath libs.lombok.plugin
+        classpath libs.gradle.versions.plugin
+        classpath libs.license.gradle.plugin
+        classpath libs.grgit.gradle
+        classpath libs.spotless.plugin.gradle
     }
 }
 
@@ -39,6 +39,9 @@ apply from: "gradle/testing.gradle"
 
 java {
     sourceCompatibility = "$projectSourceCompatibility" as Object
+    toolchain {
+        languageVersion = JavaLanguageVersion.of("$projectSourceCompatibility")
+    }
 }
 
 tasks.withType(JavaCompile) {
