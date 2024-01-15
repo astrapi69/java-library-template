@@ -10,10 +10,6 @@ gradle-versions-plugin="0.50.0"
 license-gradle-plugin="0.16.1"
 grgit-gradle="5.2.1"
 spotless-plugin-gradle="6.23.3"
-#gradlePluginVersionsVersion=0.50.0
-#licenseGradlePluginVersion=0.16.1
-#grgitGradlePluginVersion=5.2.1
-#spotlessGradlePluginVersion=6.23.3
 #########################
 # dependencies versions #
 #########################
@@ -54,3 +50,6 @@ commons-text= { module = "org.apache.commons:commons-text", version.ref = "commo
 meanbean = { module = "com.github.meanbeanlib:meanbean", version.ref = "meanbean"}
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter"}
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junit-platform-launcher"}
+
+[bundles]
+unit-testing = ["junit-jupiter", "meanbean"]

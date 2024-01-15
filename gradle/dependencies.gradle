@@ -11,8 +11,8 @@ dependencies {
     testImplementation libs.throwable
     testImplementation libs.gradle.migration.data
     testImplementation libs.commons.text
-    testImplementation libs.meanbean
-    testImplementation libs.junit.jupiter
+    // Note: use of bundles...
+    testImplementation libs.bundles.unit.testing
     testRuntimeOnly libs.junit.platform.launcher
 
 }
