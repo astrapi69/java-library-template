@@ -5,15 +5,15 @@
 ###########################
 # gradle-plugins versions #
 ###########################
-lombok-plugin="8.4"
+lombok-plugin="8.6"
 gradle-versions-plugin="0.50.0"
 license-gradle-plugin="0.16.1"
-grgit-gradle="5.2.1"
-spotless-plugin-gradle="6.23.3"
+grgit-gradle="5.2.2"
+spotless-plugin-gradle="6.25.0"
 #########################
 # dependencies versions #
 #########################
-lombok="1.18.30"
+lombok="1.18.32"
 ##############################
 # test dependencies versions #
 ##############################
@@ -23,8 +23,8 @@ throwable="2.3"
 gradle-migration-data="2"
 commons-text="1.11.0"
 meanbean="3.0.0-M9"
-junit-jupiter="5.10.1"
-junit-platform-launcher="1.10.1"
+junit-jupiter="5.10.2"
+junit-platform-launcher="1.10.2"
 
 [libraries]
 ############################
