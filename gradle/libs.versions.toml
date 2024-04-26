@@ -6,7 +6,7 @@
 # gradle-plugins versions #
 ###########################
 lombok-plugin="8.6"
-gradle-versions-plugin="0.50.0"
+gradle-versions-plugin="0.51.0"
 license-gradle-plugin="0.16.1"
 grgit-gradle="5.2.2"
 spotless-plugin-gradle="6.25.0"
@@ -21,10 +21,10 @@ silly-io="3"
 file-worker="17.1"
 throwable="2.3"
 gradle-migration-data="2"
-commons-text="1.11.0"
+commons-text="1.12.0"
 meanbean="3.0.0-M9"
-junit-jupiter="5.10.2"
-junit-platform-launcher="1.10.2"
+junit-jupiter="5.11.0-M1"
+junit-platform-launcher="1.11.0-M1"
 
 ##################
 # gradle-plugins #
