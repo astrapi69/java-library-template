@@ -26,15 +26,17 @@ meanbean="3.0.0-M9"
 junit-jupiter="5.10.2"
 junit-platform-launcher="1.10.2"
 
+##################
+# gradle-plugins #
+##################
+[plugins]
+lombok-plugin = { id = "io.freefair.lombok", version.ref = "lombok-plugin"}
+gradle-versions-plugin = { id = "com.github.ben-manes.versions", version.ref = "gradle-versions-plugin" }
+license-gradle-plugin = { id = "com.github.hierynomus.license", version.ref = "license-gradle-plugin"}
+grgit-gradle = { id = "org.ajoberstar.grgit", version.ref = "grgit-gradle"}
+spotless-plugin-gradle = { id = "com.diffplug.spotless", version.ref = "spotless-plugin-gradle"}
+
 [libraries]
-############################
-# gradle-plugins libraries #
-############################
-lombok-plugin = { module = "io.freefair.gradle:lombok-plugin", version.ref = "lombok-plugin"}
-gradle-versions-plugin = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "gradle-versions-plugin"}
-license-gradle-plugin = { module = "gradle.plugin.com.hierynomus.gradle.plugins:license-gradle-plugin", version.ref = "license-gradle-plugin"}
-grgit-gradle = { module = "org.ajoberstar.grgit:grgit-gradle", version.ref = "grgit-gradle"}
-spotless-plugin-gradle = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "spotless-plugin-gradle"}
 ##########################
 # dependencies libraries #
 ##########################
