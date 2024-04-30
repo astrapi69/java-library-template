@@ -10,6 +10,7 @@ gradle-versions-plugin="0.51.0"
 license-gradle-plugin="0.16.1"
 grgit-gradle="5.2.2"
 spotless-plugin-gradle="6.25.0"
+gradlePlugins-versionCatalog = "0.3.1"
 #########################
 # dependencies versions #
 #########################
@@ -35,6 +36,7 @@ gradle-versions-plugin = { id = "com.github.ben-manes.versions", version.ref = "
 license-gradle-plugin = { id = "com.github.hierynomus.license", version.ref = "license-gradle-plugin"}
 grgit-gradle = { id = "org.ajoberstar.grgit", version.ref = "grgit-gradle"}
 spotless-plugin-gradle = { id = "com.diffplug.spotless", version.ref = "spotless-plugin-gradle"}
+versionCatalogUpdate = { id = "nl.littlerobots.version-catalog-update", version.ref = "gradlePlugins-versionCatalog" }
 
 [libraries]
 ##########################
