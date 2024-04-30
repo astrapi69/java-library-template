@@ -17,6 +17,7 @@ plugins {
     alias(libs.plugins.license.gradle.plugin)
     alias(libs.plugins.grgit.gradle)
     alias(libs.plugins.spotless.plugin.gradle)
+    alias(libs.plugins.versionCatalogUpdate)
 }
 
 group = "$groupPackage" as Object
@@ -32,6 +33,7 @@ apply from: "gradle/packaging.gradle"
 apply from: "gradle/publishing.gradle"
 apply from: "gradle/repositories.gradle"
 apply from: "gradle/testing.gradle"
+apply from: "gradle/version-catalog-update.gradle"
 
 java {
     sourceCompatibility = "$projectSourceCompatibility" as Object
