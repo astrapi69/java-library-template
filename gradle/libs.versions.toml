@@ -13,7 +13,7 @@ lombok-version = "1.18.32"
 meanbean-version = "3.0.0-M9"
 mockito-core-version = "5.12.0"
 silly-io-version = "3"
-spotless-plugin-gradle-version = "6.25.0"
+spotless-plugin-gradle-version = "7.0.0.BETA1"
 throwable-version = "2.3"
 
 [libraries]
