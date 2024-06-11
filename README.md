@@ -62,6 +62,23 @@ then add the dependency to the dependencies area
     implementation("io.github.astrapi69:java-library-template:$javaLibraryTemplateVersion")
 ```
 
+# with new libs.versions.toml file
+
+If you use the new libs.versions.toml file for new automatic catalog versions update
+
+```
+[versions]
+java-library-template-version=${latestVersion}
+
+[libraries]
+java-library-template = { module = "io.github.astrapi69:java-library-template", version.ref = "java-library-template-version" }
+```
+then add the dependency to the dependencies area
+
+```
+    implementation libs.java.library.template
+```
+
 ## Maven dependency
 
 Maven dependency is now on sonatype.
