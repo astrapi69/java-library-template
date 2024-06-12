@@ -33,9 +33,10 @@ import org.junit.jupiter.api.Test;
 import io.github.astrapi69.file.delete.DeleteFileExtensions;
 import io.github.astrapi69.file.modify.ModifyFileExtensions;
 import io.github.astrapi69.file.search.PathFinder;
-import io.github.astrapi69.gradle.migration.data.CopyGradleRunConfigurations;
-import io.github.astrapi69.gradle.migration.data.DependenciesInfo;
-import io.github.astrapi69.gradle.migration.data.GradleRunConfigurationsCopier;
+import io.github.astrapi69.gradle.migration.extension.DependenciesExtensions;
+import io.github.astrapi69.gradle.migration.info.CopyGradleRunConfigurations;
+import io.github.astrapi69.gradle.migration.info.DependenciesInfo;
+import io.github.astrapi69.gradle.migration.runner.GradleRunConfigurationsCopier;
 import io.github.astrapi69.io.file.filter.PrefixFileFilter;
 import io.github.astrapi69.throwable.RuntimeExceptionDecorator;
 
@@ -56,7 +57,9 @@ class InitialTemplateTest
 	private void renameToConcreteProject(final String projectDescription) throws IOException
 	{
 		String concreteProjectName;
+		String concreteProjectWithDotsName;
 		String templateProjectName;
+		String templateProjectWithDotsName;
 		File sourceProjectDir;
 		File settingsGradle;
 		File dotGithubDir;
@@ -66,7 +69,9 @@ class InitialTemplateTest
 		//
 		sourceProjectDir = PathFinder.getProjectDirectory();
 		templateProjectName = DependenciesInfo.JAVA_LIBRARY_TEMPLATE_NAME;
+		templateProjectWithDotsName = templateProjectName.replaceAll("-", ".");
 		concreteProjectName = sourceProjectDir.getName();
+		concreteProjectWithDotsName = concreteProjectName.replaceAll("-", ".");
 		// adapt settings.gradle file
 		settingsGradle = new File(sourceProjectDir, DependenciesInfo.SETTINGS_GRADLE_FILENAME);
 		ModifyFileExtensions.modifyFile(settingsGradle.toPath(),
@@ -99,13 +104,18 @@ class InitialTemplateTest
 				+ System.lineSeparator());
 
 		ModifyFileExtensions.modifyFile(readme.toPath(),
+			(count,
+				input) -> input.replaceAll(templateProjectWithDotsName, concreteProjectWithDotsName)
+					+ System.lineSeparator());
+
+		ModifyFileExtensions.modifyFile(readme.toPath(),
 			(count, input) -> input.replaceAll("Template project for create java library projects",
 				projectDescription) + System.lineSeparator());
 
 		ModifyFileExtensions.modifyFile(readme.toPath(),
 			(count,
 				input) -> input.replaceAll("javaLibraryTemplateVersion",
-					GradleRunConfigurationsCopier.getProjectVersionKeyName(concreteProjectName))
+					DependenciesExtensions.getProjectVersionKeyName(concreteProjectName))
 					+ System.lineSeparator());
 
 		// create run configurations for current project
