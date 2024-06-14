@@ -79,6 +79,29 @@ then add the dependency to the dependencies area
     implementation libs.java.library.template
 ```
 
+## 📸 Snapshots
+
+[![Snapshot](https://img.shields.io/badge/dynamic/xml?url=https://oss.sonatype.org/service/local/repositories/snapshots/content/io/github/astrapi69/java-library-template/maven-metadata.xml&label=snapshot&color=red&query=.//versioning/latest)](https://oss.sonatype.org/content/repositories/snapshots/io/github/astrapi69/java-library-template/)
+
+This section describes how to import snapshot versions into your project.
+Add the following code snippet to your gradle file in the repositories section:
+```
+repositories {
+   //...
+```
+```groovy
+    maven {
+        name "Sonatype Nexus Snapshots"
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+        mavenContent {
+            snapshotsOnly()
+        }
+    }
+```
+```
+}
+```
+
 ## Maven dependency
 
 Maven dependency is now on sonatype.
@@ -110,29 +133,6 @@ Then you can add the dependency to your dependencies:
 ```
         ...
         </dependencies>
-
-## 📸 Snapshots
-
-[![Snapshot](https://img.shields.io/badge/dynamic/xml?url=https://oss.sonatype.org/service/local/repositories/snapshots/content/io/github/astrapi69/java-library-template/maven-metadata.xml&label=snapshot&color=red&query=.//versioning/latest)](https://oss.sonatype.org/content/repositories/snapshots/io/github/astrapi69/java-library-template/)
-
-This section describes how to import snapshot versions into your project.
-Add the following code snippet to your gradle file in the repositories section:
-```
-repositories {
-   //...
-```
-```groovy
-    maven {
-        name "Sonatype Nexus Snapshots"
-        url "https://oss.sonatype.org/content/repositories/snapshots"
-        mavenContent {
-            snapshotsOnly()
-        }
-    }
-```
-```
-}
-```
 
 # Donations
 
