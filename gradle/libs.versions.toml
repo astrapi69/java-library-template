@@ -1,7 +1,7 @@
 [versions]
 commons-text-version = "1.12.0"
-file-worker-version = "17.1"
-gradle-migration-data-version = "2.2"
+file-worker-version = "17.2"
+gradle-migration-data-version = "2.3"
 gradle-plugin-grgit-version = "5.2.2"
 gradle-plugin-license-version = "0.16.1"
 gradle-plugin-lombok-version = "8.6"
@@ -10,11 +10,11 @@ gradle-plugin-version-catalog-update-version = "0.8.4"
 gradle-plugin-versions-version = "0.51.0"
 junit-jupiter-version = "5.11.0-M2"
 junit-platform-launcher-version = "1.11.0-M2"
-lombok-version = "1.18.32"
+lombok-version = "1.18.34"
 meanbean-version = "3.0.0-M9"
 mockito-core-version = "5.12.0"
-silly-io-version = "3"
-throwable-version = "2.3"
+silly-io-version = "3.1"
+throwable-version = "3"
 
 [libraries]
 commons-text = { module = "org.apache.commons:commons-text", version.ref = "commons-text-version" }
