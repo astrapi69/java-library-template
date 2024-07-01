@@ -1,6 +1,6 @@
 [versions]
 commons-text-version = "1.12.0"
-file-worker-version = "17.2"
+file-worker-version = "17.3"
 gradle-migration-data-version = "2.3"
 gradle-plugin-grgit-version = "5.2.2"
 gradle-plugin-license-version = "0.16.1"
@@ -13,6 +13,7 @@ junit-platform-launcher-version = "1.11.0-M2"
 lombok-version = "1.18.34"
 meanbean-version = "3.0.0-M9"
 mockito-core-version = "5.12.0"
+silly-collection-version = "27.1"
 silly-io-version = "3.1"
 throwable-version = "3"
 
@@ -25,6 +26,7 @@ junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok-version" }
 meanbean = { module = "com.github.meanbeanlib:meanbean", version.ref = "meanbean-version" }
 mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito-core-version" }
+silly-collection = { module = "io.github.astrapi69:silly-collection", version.ref = "silly-collection-version" }
 silly-io = { module = "io.github.astrapi69:silly-io", version.ref = "silly-io-version" }
 throwable = { module = "io.github.astrapi69:throwable", version.ref = "throwable-version" }
 

@@ -8,6 +8,7 @@ dependencies {
     testImplementation libs.commons.text
     testImplementation libs.file.worker
     testImplementation libs.gradle.migration.data
+    testImplementation libs.silly.collection
     testImplementation libs.silly.io
     testImplementation libs.throwable
     // Note: use of bundles...
