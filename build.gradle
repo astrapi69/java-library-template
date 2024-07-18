@@ -25,22 +25,13 @@ version = "$projectVersion" as Object
 description = "$rootProject.name"
 
 // import gradle files
-// List of Gradle files to apply
-List<String> gradleFiles = [
-        "gradle/dependencies.gradle",
-        "gradle/formatting.gradle",
-        "gradle/grgit.gradle",
-        "gradle/licensing.gradle",
-        "gradle/packaging.gradle",
-        "gradle/publishing.gradle",
-        "gradle/repositories.gradle",
-        "gradle/testing.gradle",
-        "gradle/version-catalog-update.gradle"
-]
+// Read the list of Gradle files from a file
+def gradleFiles = file('gradle/gradle-files.list').readLines()
 
 // Apply the Gradle files
-applyGradleFiles(gradleFiles)
-
+gradleFiles.each { file ->
+    apply from: file
+}
 
 java {
     sourceCompatibility = "$projectSourceCompatibility" as Object
@@ -59,10 +50,4 @@ tasks.withType(JavaCompile).configureEach { javaCompiler ->
     // options.compilerArgs << "-Xlint:deprecation"
     // uncomment the next line for build with compiler argument -Xlint:unchecked
     // options.compilerArgs << "-Xlint:unchecked"
-}
-
-void applyGradleFiles(List<String> gradleFiles) {
-    gradleFiles.each { file ->
-        apply from: file
-    }
 }
