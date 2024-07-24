@@ -36,6 +36,11 @@ No animals were harmed in the making of this library.
 
 The source code comes under the liberal MIT License, making java-library-template great for all types of applications.
 
+## Import dependencies to your project
+
+<details>
+  <summary>gradle (click to expand)</summary>
+
 ## gradle dependency
 
 Replace the variable ${latestVersion} with the current latest version: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/java-library-template/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/java-library-template)
@@ -77,29 +82,10 @@ then add the dependency to the dependencies area
 ```
     implementation libs.java.library.template
 ```
+</details>
 
-## 📸 Snapshots
-
-[![Snapshot](https://img.shields.io/badge/dynamic/xml?url=https://oss.sonatype.org/service/local/repositories/snapshots/content/io/github/astrapi69/java-library-template/maven-metadata.xml&label=snapshot&color=red&query=.//versioning/latest)](https://oss.sonatype.org/content/repositories/snapshots/io/github/astrapi69/java-library-template/)
-
-This section describes how to import snapshot versions into your project.
-Add the following code snippet to your gradle file in the repositories section:
-```
-repositories {
-   //...
-```
-```groovy
-    maven {
-        name "Sonatype Nexus Snapshots"
-        url "https://oss.sonatype.org/content/repositories/snapshots"
-        mavenContent {
-            snapshotsOnly()
-        }
-    }
-```
-```
-}
-```
+<details>
+  <summary>Maven (click to expand)</summary>
 
 ## Maven dependency
 
@@ -132,6 +118,35 @@ Then you can add the dependency to your dependencies:
 ```
         ...
         </dependencies>
+</details>
+
+
+<details>
+  <summary>Snapshots (click to expand)</summary>
+
+## 📸 Snapshots
+
+[![Snapshot](https://img.shields.io/badge/dynamic/xml?url=https://oss.sonatype.org/service/local/repositories/snapshots/content/io/github/astrapi69/java-library-template/maven-metadata.xml&label=snapshot&color=red&query=.//versioning/latest)](https://oss.sonatype.org/content/repositories/snapshots/io/github/astrapi69/java-library-template/)
+
+This section describes how to import snapshot versions into your project.
+Add the following code snippet to your gradle file in the repositories section:
+```
+repositories {
+   //...
+```
+```groovy
+    maven {
+        name "Sonatype Nexus Snapshots"
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+        mavenContent {
+            snapshotsOnly()
+        }
+    }
+```
+```
+}
+```
+</details>
 
 # Donations
 
