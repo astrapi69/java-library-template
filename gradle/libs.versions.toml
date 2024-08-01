@@ -8,9 +8,9 @@ gradle-plugin-lombok-version = "8.6"
 gradle-plugin-spotless-version = "7.0.0.BETA1"
 gradle-plugin-version-catalog-update-version = "0.8.4"
 gradle-plugin-versions-version = "0.51.0"
-junit-jupiter-params-version = "5.11.0-M2"
-junit-jupiter-version = "5.11.0-M2"
-junit-platform-launcher-version = "1.11.0-M2"
+junit-jupiter-params-version = "5.11.0-RC1"
+junit-jupiter-version = "5.11.0-RC1"
+junit-platform-launcher-version = "1.11.0-RC1"
 lombok-version = "1.18.34"
 meanbean-version = "3.0.0-M9"
 mockito-core-version = "5.12.0"
@@ -28,6 +28,7 @@ junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok-version" }
 meanbean = { module = "com.github.meanbeanlib:meanbean", version.ref = "meanbean-version" }
 mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito-core-version" }
+mockito-junit-jupiter = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockito-core-version" }
 silly-collection = { module = "io.github.astrapi69:silly-collection", version.ref = "silly-collection-version" }
 silly-io = { module = "io.github.astrapi69:silly-io", version.ref = "silly-io-version" }
 throwable = { module = "io.github.astrapi69:throwable", version.ref = "throwable-version" }
@@ -38,6 +39,7 @@ unit-testing = [
     "junit-jupiter-params",
     "meanbean",
     "mockito-core",
+    "mockito-junit-jupiter",
 ]
 
 [plugins]
