@@ -72,7 +72,7 @@ If you use the new libs.versions.toml file for new automatic catalog versions up
 
 ```
 [versions]
-java-library-template-version=${latestVersion}
+java-library-template-version= "${latestVersion}"
 
 [libraries]
 java-library-template = { module = "io.github.astrapi69:java-library-template", version.ref = "java-library-template-version" }
