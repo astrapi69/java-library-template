@@ -126,9 +126,6 @@ class InitialTemplateTest
 					DependenciesExtensions.getProjectVersionKeyName(concreteProjectName))
 					+ System.lineSeparator());
 
-		// remove section 'Template from this project'
-		removeTemplateSection(readme);
-
 		// create run configurations for current project
 		String sourceProjectDirNamePrefix;
 		String targetProjectDirNamePrefix;
@@ -148,13 +145,17 @@ class InitialTemplateTest
 		RuntimeExceptionDecorator.decorate(() -> DeleteFileExtensions.deleteFilesWithFileFilter(
 			copyGradleRunConfigurationsData.getIdeaTargetDir(),
 			new PrefixFileFilter("java_library_template", false)));
+
+		// remove section 'Template from this project'
+		removeTemplateSection(readme);
+
 	}
 
 	private static void removeTemplateSection(File readme) throws IOException
 	{
 		int startLineIndex = findLineIndex(readme, "# Template from this project");
 		int endLineIndex = findLineIndex(readme,
-			"instruction from this [medium blog](https://asterios-raptis.medium.com/new-github-template-repository-feature-ec09afe261b8)");
+			"this [medium blog](https://asterios-raptis.medium.com/new-github-template-repository-feature-ec09afe261b8)");
 		endLineIndex = endLineIndex + 1;
 		Integer[] deleteRangeArray = ArrayFactory.newRangeArray(startLineIndex, endLineIndex);
 		List<Integer> lineIndexesToDelete = ArrayExtensions.toList(deleteRangeArray);
