@@ -4,13 +4,6 @@ dependencies {
     annotationProcessor libs.lombok
     testCompileOnly libs.lombok
     testAnnotationProcessor libs.lombok
-
-    testImplementation libs.commons.text
-    testImplementation libs.file.worker
-    testImplementation libs.gradle.migration.data
-    testImplementation libs.silly.collection
-    testImplementation libs.silly.io
-    testImplementation libs.throwable
     // Note: use of bundles...
     testImplementation libs.bundles.unit.testing
     testRuntimeOnly libs.junit.platform.launcher

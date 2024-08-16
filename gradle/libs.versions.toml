@@ -35,11 +35,17 @@ throwable = { module = "io.github.astrapi69:throwable", version.ref = "throwable
 
 [bundles]
 unit-testing = [
+    "commons-text",
+    "file-worker",
+    "gradle-migration-data",
     "junit-jupiter",
     "junit-jupiter-params",
     "meanbean",
     "mockito-core",
     "mockito-junit-jupiter",
+    "silly-collection",
+    "silly-io",
+    "throwable",
 ]
 
 [plugins]
