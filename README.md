@@ -13,7 +13,8 @@
 
 </div>
 
-Template project for create java library projects.
+Template project for create java library projects.  A small documentation how to use this template project in in the
+[wiki](https://github.com/astrapi69/java-library-template/wiki)
 
 > Please support this project by simply putting a
 > Github <a class="github-button" href="https://github.com/astrapi69/java-library-template" data-icon="octicon-star" aria-label="Star astrapi69/java-library-template on GitHub">

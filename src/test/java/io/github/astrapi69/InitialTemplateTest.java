@@ -24,9 +24,7 @@
  */
 package io.github.astrapi69;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
@@ -39,6 +37,7 @@ import io.github.astrapi69.file.create.FileFactory;
 import io.github.astrapi69.file.delete.DeleteFileExtensions;
 import io.github.astrapi69.file.modify.DeleteLinesByIndexInFile;
 import io.github.astrapi69.file.modify.ModifyFileExtensions;
+import io.github.astrapi69.file.search.FileSearchExtensions;
 import io.github.astrapi69.file.search.PathFinder;
 import io.github.astrapi69.gradle.migration.extension.DependenciesExtensions;
 import io.github.astrapi69.gradle.migration.info.CopyGradleRunConfigurations;
@@ -153,8 +152,9 @@ class InitialTemplateTest
 
 	private static void removeTemplateSection(File readme) throws IOException
 	{
-		int startLineIndex = findLineIndex(readme, "# Template from this project");
-		int endLineIndex = findLineIndex(readme,
+		int startLineIndex = FileSearchExtensions.findLineIndex(readme,
+			"# Template from this project");
+		int endLineIndex = FileSearchExtensions.findLineIndex(readme,
 			"this [medium blog](https://asterios-raptis.medium.com/new-github-template-repository-feature-ec09afe261b8)");
 		endLineIndex = endLineIndex + 1;
 		Integer[] deleteRangeArray = ArrayFactory.newRangeArray(startLineIndex, endLineIndex);
@@ -163,34 +163,4 @@ class InitialTemplateTest
 		DeleteLinesByIndexInFile deleter = new DeleteLinesByIndexInFile(lineIndexesToDelete);
 		ModifyFileExtensions.modifyFile(readme.toPath(), deleter);
 	}
-
-	/**
-	 * Finds the index of the line in a File object that starts with the given string
-	 *
-	 * @param file
-	 *            the File object to search
-	 * @param searchString
-	 *            the string to search for
-	 * @return the index of the line that contains the string, or -1 if not found
-	 * @throws IOException
-	 *             if an I/O error occurs
-	 */
-	public static int findLineIndex(File file, String searchString) throws IOException
-	{
-		try (BufferedReader reader = new BufferedReader(new FileReader(file)))
-		{
-			String line;
-			int index = 0;
-			while ((line = reader.readLine()) != null)
-			{
-				if (line.startsWith(searchString))
-				{
-					return index;
-				}
-				index++;
-			}
-		}
-		return -1;
-	}
-
 }
