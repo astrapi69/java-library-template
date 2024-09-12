@@ -75,9 +75,14 @@ If you use the new libs.versions.toml file for new automatic catalog versions up
 
 ```
 [versions]
+```
+```
 java-library-template-version= "${latestVersion}"
-
+```
+```
 [libraries]
+```
+```
 java-library-template = { module = "io.github.astrapi69:java-library-template", version.ref = "java-library-template-version" }
 ```
 
@@ -109,7 +114,7 @@ Then you can add the dependency to your dependencies:
 
 ```xml
         <!-- java-library-template version -->
-<java-library-template.version>${latestVersion}</java-library-template.version>
+        <java-library-template.version>${latestVersion}</java-library-template.version>
 ```
 
         ...
@@ -120,11 +125,11 @@ Then you can add the dependency to your dependencies:
 
 ```xml
             <!-- java-library-template DEPENDENCY -->
-<dependency>
-    <groupId>io.github.astrapi69</groupId>
-    <artifactId>java-library-template</artifactId>
-    <version>${java-library-template.version}</version>
-</dependency>
+            <dependency>
+                <groupId>io.github.astrapi69</groupId>
+                <artifactId>java-library-template</artifactId>
+                <version>${java-library-template.version}</version>
+            </dependency>
 ```
 
         ...
@@ -150,12 +155,12 @@ repositories {
 
 ```groovy
     maven {
-    name "Sonatype Nexus Snapshots"
-    url "https://oss.sonatype.org/content/repositories/snapshots"
-    mavenContent {
-        snapshotsOnly()
+        name "Sonatype Nexus Snapshots"
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+        mavenContent {
+            snapshotsOnly()
+        }
     }
-}
 ```
 
 ```
