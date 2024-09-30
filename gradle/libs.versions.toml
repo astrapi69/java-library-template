@@ -1,6 +1,7 @@
 [versions]
 assertj-core-version = "3.26.3"
 commons-text-version = "1.12.0"
+equalsverifier-version = "3.17"
 file-worker-version = "17.4"
 gradle-migration-data-version = "2.4"
 gradle-plugin-grgit-version = "5.2.2"
@@ -14,7 +15,7 @@ junit-jupiter-version = "5.11.1"
 junit-platform-launcher-version = "1.11.1"
 lombok-version = "1.18.34"
 meanbean-version = "3.0.0-M9"
-mockito-core-version = "5.13.0"
+mockito-core-version = "5.14.1"
 silly-collection-version = "28"
 silly-io-version = "3.1"
 test-object-version = "9"
@@ -23,6 +24,7 @@ throwable-version = "3"
 [libraries]
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj-core-version" }
 commons-text = { module = "org.apache.commons:commons-text", version.ref = "commons-text-version" }
+equalsverifier = { module = "nl.jqno.equalsverifier:equalsverifier", version.ref = "equalsverifier-version" }
 file-worker = { module = "io.github.astrapi69:file-worker", version.ref = "file-worker-version" }
 gradle-migration-data = { module = "io.github.astrapi69:gradle-migration-data", version.ref = "gradle-migration-data-version" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter-version" }
@@ -41,6 +43,7 @@ throwable = { module = "io.github.astrapi69:throwable", version.ref = "throwable
 unit-testing = [
     "assertj-core",
     "commons-text",
+    "equalsverifier",
     "file-worker",
     "gradle-migration-data",
     "junit-jupiter",
