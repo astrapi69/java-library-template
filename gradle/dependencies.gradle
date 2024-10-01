@@ -5,6 +5,8 @@ dependencies {
     testCompileOnly libs.lombok
     testAnnotationProcessor libs.lombok
     // Note: use of bundles...
+    implementation libs.bundles.core.dependencies
+
     testImplementation libs.bundles.unit.testing
     testRuntimeOnly libs.junit.platform.launcher
 

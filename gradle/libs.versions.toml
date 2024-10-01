@@ -40,6 +40,10 @@ test-object = { module = "io.github.astrapi69:test-object", version.ref = "test-
 throwable = { module = "io.github.astrapi69:throwable", version.ref = "throwable-version" }
 
 [bundles]
+# Bundle of the core dependencies used across the project
+core-dependencies = [
+]
+# Bundle of test dependencies used for unit testing
 unit-testing = [
     "assertj-core",
     "commons-text",
