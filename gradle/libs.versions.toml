@@ -1,7 +1,7 @@
 [versions]
 assertj-core-version = "3.26.3"
 commons-text-version = "1.12.0"
-equalsverifier-version = "3.17"
+equalsverifier-version = "3.17.1"
 file-worker-version = "17.4"
 gradle-migration-data-version = "2.4"
 gradle-plugin-grgit-version = "5.2.2"
@@ -44,43 +44,38 @@ throwable = { module = "io.github.astrapi69:throwable", version.ref = "throwable
 annotation-processor = [
     "lombok",
 ]
-
 # Dependencies required only at compile-time and not included in the final artifact
 compile-only = [
     "lombok",
 ]
-
 # Annotation processor dependencies used specifically for test classes
 test-annotation-processor = [
     "lombok",
 ]
-
 # Dependencies required only at test compile-time and not included in test runtime
 test-compile-only = [
     "lombok",
 ]
-
 # Dependencies required only at test runtime, such as test execution platforms
 test-runtime-only = [
-    "junit-platform-launcher",  # Enables launching the JUnit Platform for testing
+    "junit-platform-launcher",
 ]
-
 # Dependencies required for unit testing, including assertions, mocking, and parameterized tests
 unit-testing = [
-    "assertj-core",            # Fluent assertions library for unit tests
-    "commons-text",            # Text manipulation utilities for testing
-    "equalsverifier",          # Ensures correctness of equals/hashCode methods
-    "file-worker",             # Utilities for file operations in test cases
-    "gradle-migration-data",   # Test data used in Gradle migration scenarios
-    "junit-jupiter",           # JUnit 5 framework for writing unit tests
-    "junit-jupiter-params",    # Parameterized testing support for JUnit 5
-    "meanbean",                # Bean testing framework for Java objects
-    "mockito-core",            # Mocking framework for isolated unit testing
-    "mockito-junit-jupiter",   # Mockito integration with JUnit 5
-    "silly-collection",        # Collection utility functions for testing
-    "silly-io",                # IO utilities for use in test environments
-    "test-object",             # Predefined test objects for common scenarios
-    "throwable",               # Exception testing utilities
+    "assertj-core",
+    "commons-text",
+    "equalsverifier",
+    "file-worker",
+    "gradle-migration-data",
+    "junit-jupiter",
+    "junit-jupiter-params",
+    "meanbean",
+    "mockito-core",
+    "mockito-junit-jupiter",
+    "silly-collection",
+    "silly-io",
+    "test-object",
+    "throwable",
 ]
 
 [plugins]
