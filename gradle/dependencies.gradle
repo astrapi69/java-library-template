@@ -1,9 +1,11 @@
 dependencies {
     // Note: use of bundles...
-    compileOnly libs.bundles.compile.only
     annotationProcessor libs.bundles.annotation.processor
-    testCompileOnly libs.bundles.test.compile.only
+    compileOnly libs.bundles.compile.only
+
     testAnnotationProcessor libs.bundles.test.annotation.processor
+    testCompileOnly libs.bundles.test.compile.only
+
     testImplementation libs.bundles.unit.testing
     testRuntimeOnly libs.bundles.test.runtime.only
 
