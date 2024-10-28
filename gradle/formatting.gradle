@@ -18,4 +18,7 @@ spotless {
         // import order file as exported from eclipse
         eclipse("4.21").configFile("src/test/resources/spotless/alpharo-formatter.xml")
     }
+    groovyGradle {
+        target '*.gradle'
+    }
 }
