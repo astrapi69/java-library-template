@@ -1,7 +1,7 @@
 
 <div style="text-align: center">
 
-[![Java CI with Gradle](https://github.com/astrapi69/java-library-template/actions/workflows/gradle.yml/badge.svg)](https://github.com/astrapi69/java-library-template/actions/workflows/gradle.yml)
+[![Build Status](https://github.com/astrapi69/java-library-template/actions/workflows/gradle.yml/badge.svg)](https://github.com/astrapi69/java-library-template/actions/workflows/gradle.yml)
 [![Coverage Status](https://codecov.io/gh/astrapi69/java-library-template/branch/develop/graph/badge.svg)](https://codecov.io/gh/astrapi69/java-library-template)
 [![Open Issues](https://img.shields.io/github/issues/astrapi69/java-library-template.svg?style=flat)](https://github.com/astrapi69/java-library-template/issues)
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.astrapi69/java-library-template?style=plastic)](https://search.maven.org/artifact/io.github.astrapi69/java-library-template)
