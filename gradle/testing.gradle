@@ -3,6 +3,10 @@ test {
     useJUnitPlatform()
 }
 
+tasks.named("test") {
+    it.mustRunAfter(tasks.named("jar"))
+}
+
 jacocoTestReport {
     reports {
         xml.required.set(true)
