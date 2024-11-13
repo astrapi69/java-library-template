@@ -16,7 +16,7 @@ lombok-version = "1.18.34"
 meanbean-version = "3.0.0-M9"
 mockito-core-version = "5.14.2"
 silly-collection-version = "28.1"
-silly-io-version = "3.2"
+silly-io-version = "3.3"
 test-object-version = "9"
 throwable-version = "3"
 
