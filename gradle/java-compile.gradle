@@ -5,7 +5,7 @@ java {
     }
 }
 
-tasks.withType(JavaCompile).configureEach {
+tasks.withType(JavaCompile).configureEach  { javaCompiler ->
     options.encoding = "UTF-8"
     // Uncomment the lines below if you want to enable specific compiler warnings
     // options.compilerArgs << "-Xlint:deprecation"
