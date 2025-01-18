@@ -1,6 +1,9 @@
 license {
-    ext.year = "$projectInceptionYear"
-    ext.owner = "$projectLeaderName"
+    def inceptionYear = project.findProperty("projectInceptionYear") ?: "2025"
+    def ownerName = project.findProperty("projectLeaderName") ?: "Asterios Raptis"
+
+    ext.year = inceptionYear
+    ext.owner = ownerName
     setIgnoreFailures(true)
     setHeader(rootProject.file("src/main/resources/LICENSE.txt"))
     excludes(["**/README",
@@ -33,6 +36,3 @@ license {
               "out/**",
               "build/**"])
 }
-// workhack for license issue #76
-gradle.startParameter.excludedTaskNames += "licenseMain"
-gradle.startParameter.excludedTaskNames += "licenseTest"
