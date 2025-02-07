@@ -1,9 +1,13 @@
-license {
-    def inceptionYear = project.findProperty("projectInceptionYear") ?: "2025"
-    def ownerName = project.findProperty("projectLeaderName") ?: "Asterios Raptis"
+// Define properties early in the configuration phase
+project.ext.set("inceptionYear", project.findProperty("projectInceptionYear") ?: "2025")
+project.ext.set("ownerName", project.findProperty("projectLeaderName") ?: "Asterios Raptis")
 
-    ext.year = inceptionYear
-    ext.owner = ownerName
+
+license {
+    // Store additional properties as extra variables within the license extension
+    ext.year = project.ext.inceptionYear
+    ext.owner = project.ext.ownerName
+
     setIgnoreFailures(true)
     setHeader(rootProject.file("src/main/resources/LICENSE.txt"))
     excludes(["**/README",
