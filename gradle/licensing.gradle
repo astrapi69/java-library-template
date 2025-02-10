@@ -7,7 +7,7 @@ project.ext.set("inceptionYear", inceptionYear)
 project.ext.set("ownerName", ownerName)
 
 // Load the exclusion patterns from the file
-def exclusionFile = file('gradle/exclude-license-files.list')
+def exclusionFile = file('gradle/list/exclude-license-files.list')
 def exclusionPatterns = exclusionFile.exists() ? exclusionFile.readLines().findAll { it.trim() } : []
 
 license {
